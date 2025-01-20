@@ -36,6 +36,23 @@ void Blocks::Update(float deltaTime)
 	static Timer timer(speed);
 
 	timer.Update(deltaTime);
+
+	if (Engine::Get().GetKeyDown(VK_LEFT))
+	{
+		if (!refLevel->IsEnd(Vector2(position.x - 1, position.y)))
+		{
+			position.x -= 1;
+		}
+	}
+
+	if (Engine::Get().GetKeyDown(VK_RIGHT))
+	{
+		if (!refLevel->IsEnd(Vector2(position.x + 1, position.y)))
+		{
+			position.x += 1;
+		}
+	}
+
 	if (timer.IsTimeOut())
 	{
 		if (!refLevel->IsEnd(Vector2(position.x, position.y + 1)))
@@ -47,15 +64,12 @@ void Blocks::Update(float deltaTime)
 		}
 		timer.Reset();
 	}
-
-	//todo 키값 입력받아 이동시키기
 }
 
 void Blocks::Draw()
 {
-	SetColor(color);
+	SetColor(Color::White);
 
-	//todo 이전 값 지우기.
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
@@ -67,6 +81,8 @@ void Blocks::Draw()
 			}
 		}
 	}
+
+	SetColor(color);
 
 	for (int i = 0; i < 3; i++)
 	{

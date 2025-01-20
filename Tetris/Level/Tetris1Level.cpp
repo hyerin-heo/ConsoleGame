@@ -74,13 +74,24 @@ void Tetris1Level::Update(float deltaTime)
 			b2[i] = new bool[3];
 		}
 
+		bool isAllFalse = false;
 		for (int i = 0; i < 3; i++)
 		{
 			for (int j = 0; j < 3; j++)
 			{
 				b2[i][j] = Random(1, 10) % 2 == 0 ? true : false;
+				isAllFalse = !b2[i][j] && !isAllFalse ? true : false;
 			}
 		}
+
+		if (isAllFalse)
+		{
+			b2[1][1] = true;
+			b2[1][2] = true;
+			b2[2][1] = true;
+			b2[2][2] = true;
+		}
+
 		block = new Blocks(b2, this, 0.5f);
 	}
 
