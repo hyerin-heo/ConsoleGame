@@ -25,6 +25,15 @@ inline void SetColor(Color color)
 	);
 }
 
+// 콘솔 색상 설정 함수.
+inline void SetColor(unsigned short color)
+{
+	SetConsoleTextAttribute(
+		GetStdHandle(STD_OUTPUT_HANDLE),
+		color
+	);
+}
+
 // 메모리 삭제 함수.
 template<typename T>
 void SafeDelete(T* pointer)

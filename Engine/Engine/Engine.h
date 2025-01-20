@@ -27,7 +27,7 @@ class Actor;
 class ENGINE_API Engine
 {
 public:
-	Engine();
+	Engine(const Vector2& screenSize = Vector2(40, 25));
 	virtual ~Engine();
 
 	// 엔진 실행 함수.

@@ -11,7 +11,7 @@ DrawableActor::DrawableActor(const char* image)
 	strcpy_s(this->image, length, image);
 
 	// 너비 설정.
-	width = (int)strlen(image);
+ 	width = (int)strlen(image);
 }
 
 DrawableActor::~DrawableActor()

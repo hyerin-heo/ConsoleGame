@@ -1,7 +1,7 @@
 #include "Ground.h"
 
 Ground::Ground(const Vector2& position)
-	: DrawableActor("_")
+	: DrawableActor("-")
 {
 	// 위치 설정.
 	this->position = position;

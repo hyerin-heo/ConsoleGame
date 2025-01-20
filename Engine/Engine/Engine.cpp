@@ -12,8 +12,8 @@
 // 스태틱 변수 초기화.
 Engine* Engine::instance = nullptr;
 
-Engine::Engine()
-	: quit(false), mainLevel(nullptr), screenSize(40, 25)
+Engine::Engine(const Vector2& screenSize)
+	: quit(false), mainLevel(nullptr), screenSize(screenSize)
 {
 	// 랜덤 시드 설정.
 	srand((unsigned int)time(nullptr));

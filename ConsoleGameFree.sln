@@ -6,6 +6,14 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{67A539CB-D19F-45FF-B3D7-3F812DD53508}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleGameFree", "ConsoleGameFree\ConsoleGameFree.vcxproj", "{BAB4B00C-E49E-4501-B9CD-4A63D518EF0F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67A539CB-D19F-45FF-B3D7-3F812DD53508} = {67A539CB-D19F-45FF-B3D7-3F812DD53508}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tetris", "Tetris\Tetris.vcxproj", "{AD919458-1676-45DD-8DCD-366A50F3874C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67A539CB-D19F-45FF-B3D7-3F812DD53508} = {67A539CB-D19F-45FF-B3D7-3F812DD53508}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +39,14 @@ Global
 		{BAB4B00C-E49E-4501-B9CD-4A63D518EF0F}.Release|x64.Build.0 = Release|x64
 		{BAB4B00C-E49E-4501-B9CD-4A63D518EF0F}.Release|x86.ActiveCfg = Release|Win32
 		{BAB4B00C-E49E-4501-B9CD-4A63D518EF0F}.Release|x86.Build.0 = Release|Win32
+		{AD919458-1676-45DD-8DCD-366A50F3874C}.Debug|x64.ActiveCfg = Debug|x64
+		{AD919458-1676-45DD-8DCD-366A50F3874C}.Debug|x64.Build.0 = Debug|x64
+		{AD919458-1676-45DD-8DCD-366A50F3874C}.Debug|x86.ActiveCfg = Debug|Win32
+		{AD919458-1676-45DD-8DCD-366A50F3874C}.Debug|x86.Build.0 = Debug|Win32
+		{AD919458-1676-45DD-8DCD-366A50F3874C}.Release|x64.ActiveCfg = Release|x64
+		{AD919458-1676-45DD-8DCD-366A50F3874C}.Release|x64.Build.0 = Release|x64
+		{AD919458-1676-45DD-8DCD-366A50F3874C}.Release|x86.ActiveCfg = Release|Win32
+		{AD919458-1676-45DD-8DCD-366A50F3874C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

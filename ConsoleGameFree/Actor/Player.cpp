@@ -108,7 +108,6 @@ void Player::Draw()
 	SetColor(color);
 
 	Engine::Get().SetCursorPosition(prePosition);
-
 	Log(" ");
 
 	Engine::Get().SetCursorPosition(position);

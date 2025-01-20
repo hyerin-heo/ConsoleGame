@@ -6,7 +6,6 @@
 // 소코반 게임 레벨.
 class DrawableActor;
 class Player;
-class Box;
 class Target;
 class GameLevel : public Level
 {
@@ -14,6 +13,7 @@ class GameLevel : public Level
 
 public:
 	GameLevel();
+	~GameLevel();
 
 	virtual void Update(float deltaTime) override;
 
@@ -28,7 +28,7 @@ private:
 	bool CheckGameClear();
 
 private:
-	List<char*> mapStr;
+	List<List<DrawableActor*>*> mapList;
 	List<DrawableActor*> map;
 
 	Target* target;

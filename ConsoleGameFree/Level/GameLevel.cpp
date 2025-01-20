@@ -122,6 +122,10 @@ GameLevel::GameLevel()
 	fclose(file);
 }
 
+GameLevel::~GameLevel()
+{
+}
+
 void GameLevel::Update(float deltaTime)
 {
 	Super::Update(deltaTime);
