@@ -84,3 +84,8 @@ void Level::Draw()
 		actor->Draw();
 	}
 }
+
+void Level::Enter()
+{
+	//레벨에 다시 진입했을때 캐싱된 데이터 재 드로우 할 때 사용
+}

@@ -45,4 +45,14 @@ void Game::ToggleMenu()
 	{
 		mainLevel = backLevel;
 	}
+
+	ReDrawGame();
+}
+
+void Game::ReDrawGame()
+{
+	if (mainLevel != menuLevel)
+	{
+		mainLevel->Enter();
+	}
 }

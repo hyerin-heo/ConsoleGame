@@ -10,6 +10,8 @@ public:
 
 	void ToggleMenu();
 
+	void ReDrawGame();
+
 	static Game& Get() { return *instance; }
 
 private:

@@ -11,6 +11,10 @@ public:
 
 	virtual void Draw() override;
 
+	void Crash();
+
+	bool IsExpired() { return isExpired; }
+
 private:
 	unsigned short intColor;
 };

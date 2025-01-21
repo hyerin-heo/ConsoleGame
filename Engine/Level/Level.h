@@ -26,6 +26,8 @@ public:
 	virtual void Update(float deltaTime);
 	virtual void Draw();
 
+	virtual void Enter();
+
 protected:
 	// 게임 공간에 배치되는 물체(액터) 배열.
 	List<Actor*> actors;

@@ -17,13 +17,24 @@ public:
 
 	virtual void Draw() override;
 
+	virtual void Enter() override;
+
 	void DrawBlocks(const Vector2 position);
 
 	bool IsEnd(const Vector2 position);
 
+	void CheckScore();
 
+	void GameClear();
+	void GameOver();
+
+	bool** GenerateBlock();
 private:
 	bool CheckGameClear();
+
+	void PrintScore();
+
+	void ShowResult(bool isClear);
 
 private:
 	List<DrawableActor*> map;
@@ -32,4 +43,6 @@ private:
 	Blocks* block = nullptr;
 
 	bool isGameClear = false;
+
+	int score = 0;
 };

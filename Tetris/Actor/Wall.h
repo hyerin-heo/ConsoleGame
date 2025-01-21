@@ -8,6 +8,4 @@ class Wall : public DrawableActor
 
 public: 
 	Wall(const Vector2& position);
-
-	//virtual void Draw() override;
 };

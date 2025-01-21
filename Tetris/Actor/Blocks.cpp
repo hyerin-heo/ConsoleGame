@@ -45,6 +45,11 @@ void Blocks::Update(float deltaTime)
 
 	timer.Update(deltaTime);
 
+	if (refLevel->IsEnd(Vector2(position.x, position.y)))
+	{
+		refLevel->GameOver();
+	}
+
 	if (Engine::Get().GetKeyDown(VK_LEFT))
 	{
 		if (!refLevel->IsEnd(Vector2(position.x - 1, position.y)))
@@ -82,7 +87,7 @@ void Blocks::Draw()
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			if (block[i][j])
+			if (block[j][i])
 			{
 				Engine::Get().SetCursorPosition(Vector2(prePosition.x + i, prePosition.y + j));
 				Log(" ");
@@ -96,7 +101,7 @@ void Blocks::Draw()
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			if (block[i][j])
+			if (block[j][i])
 			{
 				Engine::Get().SetCursorPosition(Vector2(position.x + i, position.y + j));
 				Log("#");
