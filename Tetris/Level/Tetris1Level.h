@@ -23,6 +23,8 @@ public:
 
 	bool IsEnd(const Vector2 position);
 
+	Vector2 GetEndPosition(const Vector2 position);
+
 	void CheckScore();
 
 	void GameClear();

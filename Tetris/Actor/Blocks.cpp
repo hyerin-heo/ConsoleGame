@@ -33,12 +33,6 @@ Blocks::~Blocks()
 void Blocks::Update(float deltaTime)
 {
 	Super::Update(deltaTime);
-
-	if (Engine::Get().GetKeyDown(VK_ESCAPE))
-	{
-		// 메뉴 토글.
-		Game::Get().ToggleMenu();
-	}
 	prePosition = position;
 
 	static Timer timer(speed);
@@ -64,6 +58,15 @@ void Blocks::Update(float deltaTime)
 		{
 			position.x += 1;
 		}
+	}
+
+	if (Engine::Get().GetKeyDown(VK_SPACE))
+	{
+		position = refLevel->GetEndPosition(Vector2(position.x, position.y));
+		//@TODO draw해야함.
+		Draw();
+		refLevel->DrawBlocks(position);
+		timer.Reset();
 	}
 
 	if (timer.IsTimeOut())

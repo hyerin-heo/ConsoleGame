@@ -1,5 +1,6 @@
 #include "Tetris1Level.h"
 #include <Engine/Engine.h>
+#include <Game/Game.h>
 #include <Actor/Box.h>
 #include <Actor/Blocks.h>
 #include <Actor/Wall.h>
@@ -120,6 +121,12 @@ Tetris1Level::~Tetris1Level()
 
 void Tetris1Level::Update(float deltaTime)
 {
+	if (Engine::Get().GetKeyDown(VK_ESCAPE))
+	{
+		// 메뉴 토글.
+		Game::Get().ToggleMenu();
+	}
+
 	if (isGameClear)
 	{
 		return;
@@ -236,6 +243,19 @@ bool Tetris1Level::IsEnd(const Vector2 position)
 		}
 	}
 	return isEnd;
+}
+
+Vector2 Tetris1Level::GetEndPosition(const Vector2 position)
+{
+	bool** block = this->block->GetBlock();
+	for (int i = 1; i < Engine::Get().ScreenSize().y; i++)
+	{
+		if (IsEnd(Vector2(position.x, position.y + i)))
+		{
+			return Vector2(position.x, position.y + i - 1);
+		}
+	}
+	return Vector2(0,0);
 }
 
 void Tetris1Level::CheckScore()
