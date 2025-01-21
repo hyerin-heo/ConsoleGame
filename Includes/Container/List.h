@@ -45,6 +45,14 @@ public:
 		size++;
 	}
 
+	void Clear()
+	{
+		size = 0;
+		capacity = 2;
+		data = new T[capacity];
+		memset(data, 0, sizeof(T) * capacity);
+	}
+
 	void Erase(int index)
 	{
 		// 예외 처리.

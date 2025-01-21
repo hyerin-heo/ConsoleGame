@@ -11,19 +11,19 @@ Wall::Wall(const Vector2& position)
 	color = Color::Green;
 }
 
-void Wall::Draw()
-{
-	//Super::Draw();
-
-	// 색상 설정.
-	SetColor(color);
-
-	Engine::Get().SetCursorPosition(position);
-
-	Log(image);
-
-	// 색상 복구.
-	SetColor(Color::White);
-
-	//std::cout << "position : (" << position.x << ", " << position.y << ")\n";
-}
+//void Wall::Draw()
+//{
+//	//Super::Draw();
+//
+//	// 색상 설정.
+//	SetColor(color);
+//
+//	Engine::Get().SetCursorPosition(position);
+//
+//	Log(image);
+//
+//	// 색상 복구.
+//	SetColor(Color::White);
+//
+//	//std::cout << "position : (" << position.x << ", " << position.y << ")\n";
+//}

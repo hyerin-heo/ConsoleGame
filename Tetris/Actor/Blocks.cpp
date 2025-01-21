@@ -19,7 +19,15 @@ Blocks::Blocks(bool** block, Tetris1Level* refLevel, float speed)
 
 Blocks::~Blocks()
 {
-	delete block;
+	if (block)
+	{
+		for (int ix = 0; ix < 3; ++ix)
+		{
+			delete[] block[ix];
+		}
+
+		delete block;
+	}
 }
 
 void Blocks::Update(float deltaTime)

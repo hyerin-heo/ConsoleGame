@@ -17,17 +17,19 @@ Tetris1Level::Tetris1Level()
 	const int x = Engine::Get().ScreenSize().x;
 	const int y = Engine::Get().ScreenSize().y;
 
-	bool** b2 = new bool* [y];
-	for (int i = 0; i < x; i++)
+	// 2차원 배열에서 앞 인덱스가 y 두번째가 x.
+	bool** b2 = new bool*[y];
+	for (int i = 0; i < y; i++)
 	{
 		b2[i] = new bool[x];
 	}
-	//mapList = new bool[x][y];
-	for (int i = 0; i < x; i++)
+	
+	//mapList = new bool[y][x];
+	for (int i = 0; i < y; i++)
 	{
-		for (int j = 0; j < y; j++)
+		for (int j = 0; j < x; j++)
 		{
-			if (i == 0 || i == x - 1)
+			if (i == 0 || i == y - 1)
 			{
 				Wall* wall = new Wall(Vector2(i, j));
 				map.PushBack(wall);
@@ -35,13 +37,13 @@ Tetris1Level::Tetris1Level()
 			}
 			else
 			{
-				if (j == 0 || j == y - 1)
+				if (j == 0 || j == x - 1)
 				{
 					Wall* wall = new Wall(Vector2(i, j));
 					map.PushBack(wall);
 					b2[i][j] = true;
 				}
-				else 
+				else
 				{
 					b2[i][j] = false;
 				}
@@ -51,7 +53,6 @@ Tetris1Level::Tetris1Level()
 
 	mapList = b2;
 
-
 	for (auto* actor : map)
 	{
 		actor->Draw();
@@ -60,6 +61,31 @@ Tetris1Level::Tetris1Level()
 
 Tetris1Level::~Tetris1Level()
 {
+	if (block)
+	{
+		delete block;
+	}
+
+	if (map.Size() > 0)
+	{
+		for (auto* actor : map)
+		{
+			delete actor;
+		}
+	}
+
+	if (mapList != nullptr)
+	{
+		for (int y = 0; y < Engine::Get().ScreenSize().y; ++y)
+		{
+			if (mapList[y])
+			{
+				delete[] mapList[y];
+			}
+		}
+
+		delete mapList;
+	}
 }
 
 void Tetris1Level::Update(float deltaTime)
@@ -79,8 +105,8 @@ void Tetris1Level::Update(float deltaTime)
 		{
 			for (int j = 0; j < 3; j++)
 			{
-				b2[i][j] = Random(1, 10) % 2 == 0 ? true : false;
-				isAllFalse = !b2[i][j] && !isAllFalse ? true : false;
+				b2[j][i] = Random(1, 10) % 2 == 0 ? true : false;
+				isAllFalse = !b2[j][i] && !isAllFalse ? true : false;
 			}
 		}
 

@@ -5,7 +5,7 @@
 class Game : public Engine
 {
 public:
-	Game();
+	Game(const Vector2& screenSize = Vector2(40,25));
 	~Game();
 
 	void ToggleMenu();

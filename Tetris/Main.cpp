@@ -4,7 +4,9 @@
 
 int main() 
 {
-	Game game;
+	CheckMemoryLeak();
+
+	Game game(Vector2(20, 15));
 	game.LoadLevel(new Tetris1Level());
 	game.Run();
 }

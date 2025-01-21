@@ -4,8 +4,8 @@
 
 Game* Game::instance = nullptr;
 
-Game::Game()
-	: Engine()
+Game::Game(const Vector2& screenSize)
+	: Engine(screenSize)
 {
 	instance = this;
 

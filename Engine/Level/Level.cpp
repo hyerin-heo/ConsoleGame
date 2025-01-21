@@ -18,7 +18,8 @@ Level::~Level()
 void Level::AddActor(Actor* newActor)
 {
 	//actors.PushBack(newActor);
-	addRequestedActor = newActor;
+	//addRequestedActor = newActor;
+	addRequestedActor.PushBack(newActor);
 }
 
 void Level::ProcessAddedAndDestroyedActor()
@@ -38,10 +39,19 @@ void Level::ProcessAddedAndDestroyedActor()
 	}
 
 	// 추가 요청된 액터 처리.
-	if (addRequestedActor)
+	//if (addRequestedActor)
+	//{
+	//	actors.PushBack(addRequestedActor);
+	//	addRequestedActor = nullptr;
+	//}
+	if (addRequestedActor.Size() > 0)
 	{
-		actors.PushBack(addRequestedActor);
-		addRequestedActor = nullptr;
+		for (Actor* actor : addRequestedActor)
+		{
+			actors.PushBack(actor);
+		}
+		
+		addRequestedActor.Clear();
 	}
 }
 
