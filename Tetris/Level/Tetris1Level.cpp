@@ -30,6 +30,16 @@ bool t5[3][3] = {
 	{false, false, false},
 	{true, true, true}
 };
+bool t6[3][3] = {
+	{false, true, true},
+	{false, true, true},
+	{false, true, true}
+};
+bool t7[3][3] = {
+	{true, true, true},
+	{false, true, false},
+	{false, true, false}
+};
 
 const float level1Speed = 0.5f;
 const int level1ClearScore = 300;
@@ -372,7 +382,7 @@ bool** Tetris1Level::GenerateBlock()
 		temp[i] = new bool[3];
 	}
 
-	int random = Random(1, 5);
+	int random = Random(1, 7);
 
 	switch (random)
 	{
@@ -412,12 +422,30 @@ bool** Tetris1Level::GenerateBlock()
 			}
 		}
 		break;
-	default:
+	case 5:
 		for (int i = 0; i < 3; i++)
 		{
 			for (int j = 0; j < 3; j++)
 			{
 				temp[j][i] = t5[j][i];
+			}
+		}
+		break;
+	case 6:
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				temp[j][i] = t6[j][i];
+			}
+		}
+		break;
+	default:
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				temp[j][i] = t7[j][i];
 			}
 		}
 		break;
